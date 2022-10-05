@@ -1,9 +1,11 @@
 # # Car Management Dashboard
 
 ## Entity Relationship Diagram
-![Card ERD](https://github.com/pahrurozidev/Car-Management-Dashboard/blob/master/public/assets/card-erd.png)
+<p align="center">
+  <img width="460" height="300" src="https://github.com/pahrurozidev/Car-Management-Dashboard/blob/master/public/assets/card-erd.png">
+</p>
 
-## 1. Get All Cars
+## Get All Cars
 ```[ENDPOINT] /api/v1/cars```
 ```url
 [GET] http://localhost:5000/api/v1/cars
@@ -27,7 +29,7 @@
 }
 ```
 
-## 2. get One Car
+## get One Car
 ```[ENDPOINT] /api/v1/cars/{id}```
 ```url
 [GET] http://localhost:5000/api/v1/cars/1
@@ -46,7 +48,7 @@
 }
 ```
 
-## 3. Create Car
+## Create Car
 ```[ENDPOINT] /api/v1/cars```
 ```url
 [POST] http://localhost:5000/api/v1/cars
@@ -68,7 +70,7 @@
 }
 ```
 
-## 4. Update Car
+## Update Car
 ```[ENDPOINT] /api/v1/cars/{id}```
 ```url
 [PUT] http://localhost:5000/api/v1/cars/1
@@ -82,7 +84,7 @@
 }
 ```
 
-## 4. Delete Car
+## Delete Car
 ```[ENDPOINT] /api/v1/cars/{id}```
 ```url
 [DELETE] http://localhost:5000/api/v1/cars/1
