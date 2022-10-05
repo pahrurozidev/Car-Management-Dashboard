@@ -1,6 +1,6 @@
-# # Car Management Dashboard
+<h1 align="center">Car Management Dashboard</h1>
 
-## Entity Relationship Diagram
+<h2 align="center">Entity Relationship Diagram</h2>
 <p align="center">
   <img width="460" height="300" src="https://github.com/pahrurozidev/Car-Management-Dashboard/blob/master/public/assets/card-erd.png">
 </p>
@@ -29,7 +29,7 @@
 }
 ```
 
-## get One Car
+## Get One Car
 ```[ENDPOINT] /api/v1/cars/{id}```
 ```url
 [GET] http://localhost:5000/api/v1/cars/1
@@ -37,14 +37,14 @@
 
 #### Sample Response
 ```json
-{
-  "id": 60,
-  "name": "dfdf",
-  "image": "profile-pic (1).png",
-  "price": 1,
-  "size": "small",
-  "createdAt": "2022-10-05T00:07:26.083Z",
-  "updatedAt": "2022-10-05T00:42:20.579Z"
+ {
+    "id": 1,
+    "name": "Avanza",
+    "image": "avanza-pic.png",
+    "price": 1,
+    "size": "small",
+    "createdAt": "2022-10-05T00:34:58.950Z",
+    "updatedAt": "2022-10-05T00:34:58.950Z"
 }
 ```
 
