@@ -95,5 +95,7 @@
 }
 ```
 
-#### Created by Pahrurozi
+<br/>
+#### Created by @pahrurozi
+##### Lombok - Indonesia
 
