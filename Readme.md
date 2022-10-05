@@ -1,7 +1,7 @@
 # # Car Management Dashboard
 
 ## Entity Relationship Diagram
-![Card ERD](https://github.com/pahrurozidev/Car-Management-Dashboard/public/main/assets/car-erd.png?raw=true)
+![Card ERD](https://github.com/pahrurozidev/Car-Management-Dashboard/blob/master/public/assets/card-erd.png)
 
 ## 1. Get All Cars
 ```[ENDPOINT] /api/v1/cars```
