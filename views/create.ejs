@@ -1,0 +1,44 @@
+<article style="width: 79%; background: #E5E5E5; padding: 85px 0 0 25px;">
+    <section class="broadcramp">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+            aria-label="breadcrumb">
+            <ol class="breadcrumb" style="font-size: 14px;">
+                <li class="breadcrumb-item"><a href="/cars" style="text-decoration: none; color: black;">Home</a>
+                </li>
+                <li class="breadcrumb-item"><a href="/cars" style="text-decoration: none; color: black;">List Car</a>
+                </li>
+                <li class="breadcrumb-item"><a href="/create" style="text-decoration: none; color: black;">Add New
+                        Car</a>
+                </li>
+            </ol>
+        </nav>
+    </section>
+
+    <section>
+        <h1 class="mt-4 mb-3 fw-bold" style="font-size: 20px;">Add New Car</h1>
+        <form action="/cars" method="post" style="width: 98%; background: white" enctype="multipart/form-data">
+            <div class="col-7 p-4 d-flex flex-column" style="gap: 20px;">
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="name" class="form-label pt-2">Nama</label>
+                    <input type="text" name="name" class="form-control" id="name" style="width: 400px;">
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="price" class="form-label pt-2">Sewa Per Hari</label>
+                    <input type="number" name="price" class="form-control" id="price" style="width: 400px;">
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="size" class="form-label pt-2">Ukuran</label>
+                    <input type="text" name="size" class="form-control" id="size" style="width: 400px;">
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="image" class="form-label pt-2">Foto</label>
+                    <input type="file" name="image" class="form-control" id="image" style="width: 400px;">
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div></div>
+                    <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
+                </div>
+            </div>
+        </form>
+    </section>
+</article>
