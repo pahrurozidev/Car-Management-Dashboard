@@ -32,17 +32,33 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <label for="size" class="form-label pt-2">Ukuran</label>
-                    <input type="text" name="size" value="<%= car.size %>" class="form-control" id="size"
-                        style="width: 400px;">
+                    <select class="form-select" name="size" class="form-control" id="size" style="width: 400px;">
+                        <% if (car.size) { %>
+                            <option value="<%= car.size %>"><%= car.size %> </option>
+                        <% } else { %>
+                            <option selected>Open this for select</option>
+                        <% } %>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="col-4"></div>
+                    <img src="./uploads/<%= car.image %>" alt="car image" width="100" class="rounded">
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <label for="image" class="form-label pt-2">Foto</label>
-                    <input type="file" name="image" value="<%= car.image %>" class="form-control" id="image"
-                        style="width: 400px;">
+                    <input type="hidden" name="oldImage" value="<%= car.image %>">
+                    <input type="file" name="image" class="form-control" id="image"
+                    style="width: 400px;">
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div></div>
-                    <button type="submit" class="btn btn-primary btn-sm">Ubah</button>
+            </div>
+
+            <div class="position-absolute" style="bottom: 50px;">
+                <div class="d-flex justify-content-between align-items-center" style="gap: 10px;">
+                    <button type="submit" class="col-8 btn text-white btn-sm" style="background: #5CB85F;">Ubah</button>
+                    <a href="/cars" class="col-8 btn btn-outline-danger btn-sm">Batal</a>
                 </div>
             </div>
         </form>

@@ -14,6 +14,7 @@
 #### Sample Response
 ```json
 {
+  "status": true,
   "data": [
     {
       "id": 1,
@@ -54,6 +55,16 @@
 [POST] http://localhost:5000/api/v1/cars
 ```
 
+#### Sample Request
+```json
+{
+  "name": String,
+  "image": String,
+  "price": Integer,
+  "size": String,
+}
+```
+
 #### Sample Response
 ```json
 {
@@ -74,6 +85,16 @@
 ```[ENDPOINT] /api/v1/cars/{id}```
 ```url
 [PUT] http://localhost:5000/api/v1/cars/1
+```
+
+#### Sample Request
+```json
+{
+  "name": String,
+  "image": String,
+  "price": Integer,
+  "size": String,
+}
 ```
 
 #### Sample Response

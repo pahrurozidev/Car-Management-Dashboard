@@ -1,5 +1,13 @@
 <!-- content -->
 <article style="width: 79%; background: #E5E5E5; padding-left: 25px;">
+    <% if (msg.length !== 0) { %> 
+        <div class="col-5 position-absolute" style="margin: 80px 0 0 300px;">
+            <div class="alert text-white text-center" role="alert" style="background: #5CB85F;">
+                <%= msg %>
+            </div>
+        </div>
+    <% } %> 
+
     <section class="broadcramp" style="margin-top: 85px;">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
             aria-label="breadcrumb">
@@ -13,9 +21,9 @@
     </section>
     <section class="d-flex justify-content-between align-items-center" style="width: 98%;">
         <h1 style="font-size: 20px;">List Car</h1>
-        <a href="/create" class="btn btn-primary d-flex" style="gap: 10px;">
+        <a href="/create" class="btn d-flex" style="gap: 10px; background: #5CB85F;">
             <div><img src="./assets/fi_plus.png" alt="add icon"></div>
-            <span>Add New Car</span>
+            <span class="text-white">Add New Car</span>
         </a>
     </section>
     <section class="mt-3 d-flex" style="gap: 10px;">
@@ -27,36 +35,71 @@
         <a href="#" class="text-decoration-none text-dark border border-secondary px-3 py-1 shadow-sm rounded">Large</a>
     </section>
     <section class="row mt-3 m-0" style="width: 98%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-        <% cars.data.forEach((car)=> { %>
+        <% cars.forEach((car)=> { %>
             <div class="card">
-                <img src="./uploads/<%= car.image %> " class="p-4" alt="Car Image">
+                <img src="./uploads/<%= car.image %>" class="p-4" alt="Car Image">
                 <div class="p-3">
                     <h4 style="font-size: 14px;">Nama/Tipe Mobil</h4>
                     <h3 style="font-size: 18px;">Rp <%= car.price %> / hari</h3>
                     <div>
                         <img src="./assets/fi_clock.png" alt="clock icon">
-                        <small style="font-size: 14px;">Updated at 4 Apr 2022, 09.00</small>
+                        <!-- Updated at 4 Apr 2022, 09.00 -->
+                        <small style="font-size: 14px;">Updated at <%= car.updatedAt %> </small>
                     </div>
                     <div class="mt-3 d-flex" style="gap: 8px;">
-                        <form action="/cars?_method=DELETE" method="post" class="col-6">
-                            <input type="hidden" name="id" value="<%= car.id %>">
-                            <button type="submit"
-                                class="col-12 btn btn-outline-danger d-flex justify-content-center align-items-center"
-                                style="font-size: 14px; gap: 5px;" onclick="return confirm('Yakin ingin hapus?')">
-                                <img src="./assets/fi_trash.png" alt="trash icon">
-                                <span>Delete</span>
-                            </button>
-                        </form>
+                        <a href="#"
+                            class="col-6 btn btn-outline-danger d-flex justify-content-center align-items-center"
+                            style="font-size: 14px; gap: 5px;" onclick="return showMessageDelete()">
+                            <img src="./assets/fi_trash.png" alt="trash icon">
+                            <span>Delete</span>
+                        </a>
                         <a href="/update?id=<%= car.id %>"
-                            class="col-6 btn btn-primary d-flex justify-content-center align-items-center"
-                            style="font-size: 14px; gap: 5px;">
+                            class="col-6 btn d-flex justify-content-center align-items-center"
+                            style="font-size: 14px; gap: 5px; background: #5CB85F;">
                             <img src="./assets/fi_edit.png" alt="edit icon">
-                            <span>Edit</span>
+                            <span class="text-white">Edit</span>
                         </a>
                     </div>
                 </div>
             </div>
-            <% }) %>
+            <!-- confirm message delete -->
+
+            <div class="position-absolute bg-secondary container-message-delete d-none" style="height: 100vh; top: 0; left: 0; z-index: 103; opacity: .5;">
+            </div>
+
+            <div class="col-3 d-flex flex-column text-center p-3 justify-content-center align-items-center rounded bg-light text-dark position-absolute d-none message-delete" style="top: 30%; left: 40%; z-index: 104 !important;">
+                <img src="./assets/img-BeepBeep.png" alt="img delete">
+                <h1 style="font-size: 20px;" class="fw-bold my-4">Menghapus Data Mobil</h1>
+                <p>Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin hapus?</p>
+                <div class="d-flex justify-content-center" style="gap: 10px;">
+                    <form action="/cars?_method=DELETE" method="post" class="col-12">
+                        <input type="hidden" name="id" value="<%= car.id %>">
+                        <button type="submit" class="col-12 btn ya d-flex justify-content-center align-items-center text-white"
+                            style="font-size: 14px; gap: 5px; background: #5CB85F;">Ya
+                        </button>
+                    </form>
+                    <button class="col-12 btn tidak" style="border: 1px solid #5CB85F;">Tidak</button>
+                </div>
+            </div>
+        <% }) %>
     </section>
 </article>
+
+<script>
+    const containerMessageDeleteELement = document.querySelector('.container-message-delete');
+    const messageDeleteELement = document.querySelector('.message-delete');
+
+    const btnYaELement = document.querySelector('.ya');
+    const btnTidakELement = document.querySelector('.tidak');
+
+    btnTidakELement.addEventListener('click', () => {
+        containerMessageDeleteELement.classList.add('d-none');
+        messageDeleteELement.classList.add('d-none');
+    })
+
+    function showMessageDelete() {
+        containerMessageDeleteELement.classList.remove('d-none');
+        messageDeleteELement.classList.remove('d-none');
+    }
+</script>
 <!-- end content -->
